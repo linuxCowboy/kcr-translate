@@ -30,8 +30,8 @@ javascript: (function() {
         kObj = w.KindleReaderContextMenu;
         kDoc = w.document;
 
-        if (typeof kObj.KCTranslate === 'undefined') {
-            kObj.KCTranslate = true;
+        if (typeof kObj.KCRTranslate === 'undefined') {
+            kObj.KCRTranslate = true;
             var oldMethod = kObj.show;
 
             kObj.show = function () {
@@ -69,19 +69,19 @@ javascript: (function() {
                     }
                 }
 
-                $('#KCTranslate_sep',   kDoc).remove();
-                $('#KCTranslate_site1', kDoc).remove();
-                $('#KCTranslate_site2', kDoc).remove();
+                $('#KCRTranslate_sep',   kDoc).remove();
+                $('#KCRTranslate_site1', kDoc).remove();
+                $('#KCRTranslate_site2', kDoc).remove();
 
                 var styles = $('<style>.spinner, .dictionary.i18n.expanded {display:none !important;}'
                     + 'div#kindleReader_menu_contextMenu { max-height: 35px;}</style>');
 
-                var sep = $('<div id="KCTranslate_sep" class="kindle_menu_separator"></div>');
+                var sep = $('<div id="KCRTranslate_sep" class="kindle_menu_separator"></div>');
 
-                var site1 = $('<div id="KCTranslate_site1"'
+                var site1 = $('<div id="KCRTranslate_site1"'
                     + 'class="kindle_menu_button button_enabled ui-corner-left">' + Site1 + '</div>');
 
-                var site2 = $('<div id="KCTranslate_site2"'
+                var site2 = $('<div id="KCRTranslate_site2"'
                     + 'class="kindle_menu_button button_enabled ui-corner-left">' + Site2 + '</div>');
 
                 $('#kindle_menu_border', kDoc).append(sep).append(site1).append(sep).append(site2).append(styles);
@@ -93,13 +93,13 @@ javascript: (function() {
                     site2.removeClass('button_hidden');
                 }, 1);
 
-                $('#KCTranslate_site1', kDoc).click(function (evt) {
+                $('#KCRTranslate_site1', kDoc).click(function (evt) {
                     if (r) {
                         var newW = window.open(Url1 + r, Site1, "width=" + width + ",height=" + height);
                     }
                 });
 
-                $('#KCTranslate_site2', kDoc).click(function (evt) {
+                $('#KCRTranslate_site2', kDoc).click(function (evt) {
                     if (r) {
                         var newW = window.open(Url2 + r, Site2,
                             "width=" + width + ",height=" + height + ",top=" + down);
