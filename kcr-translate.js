@@ -68,40 +68,40 @@ javascript: (function() {
                     }
                 }
 
-                $('#KCTranslate_copyB_sep', kDoc).remove();
-                $('#KCTranslate_copyB',     kDoc).remove();
-                $('#KCTranslate_copyC',     kDoc).remove();
+                $('#KCTranslate_sep',   kDoc).remove();
+                $('#KCTranslate_site1', kDoc).remove();
+                $('#KCTranslate_site2', kDoc).remove();
 
                 var styles = $('<style>.spinner, .dictionary.i18n.expanded {display:none !important;}'
                     + 'div#kindleReader_menu_contextMenu { max-height: 35px;}</style>');
 
-                var sepEl = $('<div id="KCTranslate_copyB_sep" class="kindle_menu_separator"></div>');
+                var sep = $('<div id="KCTranslate_sep" class="kindle_menu_separator"></div>');
 
-                var copyB = $('<div id="KCTranslate_copyB"'
+                var site1 = $('<div id="KCTranslate_site1"'
                     + 'class="kindle_menu_button button_enabled ui-corner-left">' + Site1 + '</div>');
 
-                var copyC = $('<div id="KCTranslate_copyC"'
+                var site2 = $('<div id="KCTranslate_site2"'
                     + 'class="kindle_menu_button button_enabled ui-corner-left">' + Site2 + '</div>');
 
-                $('#kindle_menu_border', kDoc).append(sepEl).append(copyB).append(sepEl).append(copyC).append(styles);
+                $('#kindle_menu_border', kDoc).append(sep).append(site1).append(sep).append(site2).append(styles);
 
                 setTimeout(function(){
-                    sepEl.show();
+                    sep.show();
 
-                    copyB.removeClass('button_hidden');
-                    copyC.removeClass('button_hidden');
+                    site1.removeClass('button_hidden');
+                    site2.removeClass('button_hidden');
                 }, 1);
 
-                $('#KCTranslate_copyB', kDoc).click(function (evt) {
+                $('#KCTranslate_site1', kDoc).click(function (evt) {
                     if (r) {
-                        var newW = window.open(Url1 + r, Site1 ,
+                        var newW = window.open(Url1 + r, Site1,
                             "width=" + width + ",height=" + height + ",location=0,menubar=0,scrollbars=1,toolbar=0");
                     }
                 });
 
-                $('#KCTranslate_copyC', kDoc).click(function (evt) {
+                $('#KCTranslate_site2', kDoc).click(function (evt) {
                     if (r) {
-                        var newW = window.open(Url2 + r, Site2 ,
+                        var newW = window.open(Url2 + r, Site2,
                             "width=" + width + ",height=" + height + ",location=0,menubar=0,scrollbars=1,toolbar=0");
                     }
                 });
