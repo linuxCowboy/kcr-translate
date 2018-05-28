@@ -43,8 +43,9 @@ javascript: (function() {
                 var height = 400;
 
                 if (window.screen) {
-                    width  = window.screen.availWidth  * 80 / 100;
-                    height = window.screen.availHeight * 85 / 100;
+                    width  = screen.availWidth  * 70 / 100;
+                    height = screen.availHeight * 40 / 100;
+                    down   = screen.availHeight * 10 / 100 + height;
                 }
 
                 if (typeof (arguments[3]) !== 'undefined' && typeof (arguments[3]['start']) !== 'undefined') {
@@ -54,7 +55,7 @@ javascript: (function() {
                     $('iframe', kDoc).each(function (j, textIframe) {
                         var textIFrameDoc = $(textIframe).contents().get(0);
 
-                        if ($('#'+sId, textIFrameDoc).get(0)) {
+                        if ($('#' + sId, textIFrameDoc).get(0)) {
                             txtDoc = textIFrameDoc;
                             return false;
                         }
@@ -63,8 +64,8 @@ javascript: (function() {
                     if (txtDoc) {
                         r = txtDoc.createRange();
 
-                        r.setStartBefore($('#'+sId, txtDoc).get(0));
-                        r.setEndAfter($(   '#'+eId, txtDoc).get(0));
+                        r.setStartBefore($('#' + sId, txtDoc).get(0));
+                        r.setEndAfter(   $('#' + eId, txtDoc).get(0));
                     }
                 }
 
@@ -94,22 +95,21 @@ javascript: (function() {
 
                 $('#KCTranslate_site1', kDoc).click(function (evt) {
                     if (r) {
-                        var newW = window.open(Url1 + r, Site1,
-                            "width=" + width + ",height=" + height + ",location=0,menubar=0,scrollbars=1,toolbar=0");
+                        var newW = window.open(Url1 + r, Site1, "width=" + width + ",height=" + height);
                     }
                 });
 
                 $('#KCTranslate_site2', kDoc).click(function (evt) {
                     if (r) {
                         var newW = window.open(Url2 + r, Site2,
-                            "width=" + width + ",height=" + height + ",location=0,menubar=0,scrollbars=1,toolbar=0");
+                            "width=" + width + ",height=" + height + ",top=" + down);
                     }
                 });
 
                 return res;
             };
 
-            alert('Kindle Cloud Reader Translate is *NOW* active.');
+            alert('Kindle Cloud Reader Translate is now active.');
 
         } else {
             alert('Kindle Cloud Reader Translate is *ALREADY* active.');
