@@ -109,14 +109,14 @@ javascript: (function() {
                 return res;
             };
 
-            alert('Kindle Cloud Reader Translate is NOW active.');
+            alert('Kindle Cloud Reader Translate is *NOW* active.');
 
         } else {
-            alert('Kindle Cloud Reader Translate is ALREADY active.');
+            alert('Kindle Cloud Reader Translate is *ALREADY* active.');
         }
 
     } else {
-        alert('Error: Kindle Cloud Reader Translate is NOT active.');
+        alert('Error: Kindle Cloud Reader Translate is *NOT* active.');
     }
 })();
 
