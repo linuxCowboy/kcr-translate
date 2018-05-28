@@ -2,10 +2,8 @@ javascript: (function() {
 
 /* -=[ KCR Translate ]=- */
 
-    var Site1 = 'dict.cc';
     var Url1  = 'http://en-de.pocket.dict.cc/?s=';
 
-    var Site2 = 'google';
     var Url2  = 'https://translate.google.com/?hl=en#auto/de/';
 
 /*************************************************************/
@@ -70,41 +68,63 @@ javascript: (function() {
                 }
 
                 $('#KCRTranslate_sep',   kDoc).remove();
-                $('#KCRTranslate_site1', kDoc).remove();
-                $('#KCRTranslate_site2', kDoc).remove();
+                $('#KCRTranslate_trans', kDoc).remove();
+                $('#KCRTranslate_copy',  kDoc).remove();
 
                 var styles = $('<style>.spinner, .dictionary.i18n.expanded {display:none !important;}'
                     + 'div#kindleReader_menu_contextMenu { max-height: 35px;}</style>');
 
                 var sep = $('<div id="KCRTranslate_sep" class="kindle_menu_separator"></div>');
 
-                var site1 = $('<div id="KCRTranslate_site1"'
-                    + 'class="kindle_menu_button button_enabled ui-corner-left">' + Site1 + '</div>');
+                var trans = $('<div id="KCRTranslate_trans"'
+                    + 'class="kindle_menu_button button_enabled ui-corner-left">Translate</div>');
 
-                var site2 = $('<div id="KCRTranslate_site2"'
-                    + 'class="kindle_menu_button button_enabled ui-corner-left">' + Site2 + '</div>');
+                var copy = $('<div id="KCRTranslate_copy"'
+                    + 'class="kindle_menu_button button_enabled ui-corner-left">Copy</div>');
 
-                $('#kindle_menu_border', kDoc).append(sep).append(site1).append(sep).append(site2).append(styles);
+                $('#kindle_menu_border', kDoc).append(sep).append(trans).append(sep).append(copy).append(styles);
 
                 setTimeout(function(){
                     sep.show();
 
-                    site1.removeClass('button_hidden');
-                    site2.removeClass('button_hidden');
+                    trans.removeClass('button_hidden');
+                    copy.removeClass('button_hidden');
                 }, 1);
 
-                $('#KCRTranslate_site1', kDoc).click(function (evt) {
+                $('#KCRTranslate_trans', kDoc).click(function (evt) {
                     if (r) {
-                        var newW = window.open(Url1 + r, Site1, "width=" + width + ",height=" + height);
+                        var win1 = window.open(Url1 + r, 'Translate', "width=" + width + ",height=" + height);
+
+                        setTimeout(function(){
+                            var win2 = window.open(Url2 + r, 'Copy', "width=" + width + ",height=" + height + ",top=" + down);
+                        }, 200);
                     }
                 });
 
-                $('#KCRTranslate_site2', kDoc).click(function (evt) {
+                $('#KCRTranslate_copy', kDoc).click(function (evt) {
                     if (r) {
-                        var newW = window.open(Url2 + r, Site2,
-                            "width=" + width + ",height=" + height + ",top=" + down);
+                        copyToClipboard(r.cloneContents().textContent);
+
+                        $('.ui-widget-content', kDoc).hide();
+                        $('#annotation-section', txtDoc).remove();
                     }
                 });
+
+                var copyToClipboard = function(textToCopy) {
+                    $("body")
+                        .append($('<input type="text" display="none" name="fname" class="textToCopyInput"/>')
+                            .val(textToCopy))
+                        .find(".textToCopyInput")
+                        .select();
+
+                    try {
+                        var successful = document.execCommand('copy');
+                    } catch (err) {
+                        window.prompt("To copy the text to clipboard: Ctrl+C, Enter", textToCopy);
+                    }
+
+                    $(".textToCopyInput").remove();
+                };
 
                 return res;
             };
