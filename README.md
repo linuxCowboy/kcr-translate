@@ -23,6 +23,6 @@ __pocket.dict.cc__
 
 and
 
-__translate.google.com__
+__deepl.com__
 
 Tested with *Chromium* on *Debian GNU/Linux*
