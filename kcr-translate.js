@@ -4,7 +4,7 @@ javascript: (function() {
 
     var Url1  = 'http://en-de.pocket.dict.cc/?s=';
 
-    var Url2  = 'https://translate.google.com/?hl=en#auto/de/';
+    var Url2 = 'https://www.deepl.com/translator#en/de/';
 
 /*************************************************************/
 
