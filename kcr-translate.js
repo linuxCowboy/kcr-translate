@@ -93,10 +93,10 @@ javascript: (function() {
 
                 $('#KCRTranslate_trans', kDoc).click(function (evt) {
                     if (r) {
-                        var win1 = window.open(Url1 + r, 'Translate', "width=" + width + ",height=" + height);
+                        var win1 = window.open(Url1 + r, 'Translate', "location=0,menubar=0,scrollbars=1,toolbar=0,width=" + width + ",height=" + height).focus();
 
                         setTimeout(function(){
-                            var win2 = window.open(Url2 + r, 'Copy', "width=" + width + ",height=" + height + ",top=" + down);
+                            var win2 = window.open(Url2 + r, 'Copy', "location=0,menubar=0,scrollbars=1,toolbar=0,width=" + width + ",height=" + height + ",top=" + down).focus();
                         }, 200);
                     }
                 });
