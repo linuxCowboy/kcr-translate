@@ -2,11 +2,11 @@ javascript: (function() {
 
 /* -=[ KCR Translate ]=- */
 
-    var Url1  = 'http://en-de.pocket.dict.cc/?s=';
+    var Url1 = 'http://en-de.pocket.dict.cc/?s=';
 
     var Url2 = 'https://www.deepl.com/translator#en/de/';
 
-/*************************************************************/
+/*******************************************************/
 
     var w = null;
     var kDoc = null;
@@ -36,15 +36,6 @@ javascript: (function() {
                 var res = oldMethod.apply(kObj, arguments);
                 var txtDoc = null;
                 var r = null;
-
-                var width  = 600;
-                var height = 400;
-
-                if (window.screen) {
-                    width  = screen.availWidth  * 70 / 100;
-                    height = screen.availHeight * 40 / 100;
-                    down   = screen.availHeight * 10 / 100 + height;
-                }
 
                 if (typeof (arguments[3]) !== 'undefined' && typeof (arguments[3]['start']) !== 'undefined') {
                     var sId = arguments[3]['start'];
@@ -93,10 +84,24 @@ javascript: (function() {
 
                 $('#KCRTranslate_trans', kDoc).click(function (evt) {
                     if (r) {
-                        var win1 = window.open(Url1 + r, 'Translate', "location=0,menubar=0,scrollbars=1,toolbar=0,width=" + width + ",height=" + height).focus();
+                        var height = screen.availHeight * 80 / 100;
+                        var width  = screen.availWidth  * 70 / 100;
+                        var top    = 0;
+                        var left   = 0;
+
+                        var win1 = window.open(Url1 + r, 'Translate',
+                            "location=0,menubar=0,scrollbars=1,toolbar=0,status=0,titlebar=0,width=" +
+                            width + ",height=" + height + ",top=" + top + ",left=" + left).focus();
+
+                        height = screen.availHeight * 70 / 100;
+                        width  = screen.availWidth  * 60 / 100;
+                        top    = screen.availHeight * 20 / 100;
+                        left   = screen.availWidth  * 30 / 100;
 
                         setTimeout(function(){
-                            var win2 = window.open(Url2 + r, 'Copy', "location=0,menubar=0,scrollbars=1,toolbar=0,width=" + width + ",height=" + height + ",top=" + down).focus();
+                            var win2 = window.open(Url2 + r, 'Copy',
+                            "location=0,menubar=0,scrollbars=1,toolbar=0,status=0,titlebar=0,width=" +
+                            width + ",height=" + height + ",top=" + top + ",left=" + left).focus();
                         }, 200);
                     }
                 });
