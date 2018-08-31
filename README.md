@@ -2,6 +2,12 @@
 
 _Highlight_, _Note_, _Translate_ and _Copy_ Popup
 
+4 online dictionaries:
+* dict.cc
+* google translate
+* deepl
+* the free dictionary
+
 Install:
 * Add a bookmark in your browser and paste the script content as *URL*
 * Open the Amazon *Kindle Cloud Reader*
@@ -12,17 +18,5 @@ Install:
 * Double-click a word / Reopen the menu
 * ...
 * Close the book / Return to Library to unload
-
-Defaults to
-
-**English - German**
-
-with
-
-__pocket.dict.cc__
-
-and
-
-__deepl.com__
 
 Tested with *Chromium* on *Debian GNU/Linux*
