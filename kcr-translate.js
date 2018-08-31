@@ -2,7 +2,7 @@ javascript: (function() {
 
 /* -=[ KCR Translate ]=- */
 
-    var Url1 = 'http://en-de.pocket.dict.cc/?s=';
+    var Url1 = 'http://en-de.dict.cc/?s=';
 
     var Url2 = 'https://www.deepl.com/translator#en/de/';
 
@@ -84,19 +84,19 @@ javascript: (function() {
 
                 $('#KCRTranslate_trans', kDoc).click(function (evt) {
                     if (r) {
-                        var height = screen.availHeight * 80 / 100;
-                        var width  = screen.availWidth  * 70 / 100;
-                        var top    = 0;
-                        var left   = 0;
+                        var height = screen.availHeight * 65 / 100;
+                        var width  = screen.availWidth  * 85 / 100;
+                        var top    = screen.availHeight *  5 / 100;
+                        var left   = screen.availWidth  *  5 / 100;
 
                         var win1 = window.open(Url1 + r, 'Translate',
                             "location=0,menubar=0,scrollbars=1,toolbar=0,status=0,titlebar=0,width=" +
                             width + ",height=" + height + ",top=" + top + ",left=" + left).focus();
 
                         height = screen.availHeight * 70 / 100;
-                        width  = screen.availWidth  * 60 / 100;
-                        top    = screen.availHeight * 20 / 100;
-                        left   = screen.availWidth  * 30 / 100;
+                        width  = screen.availWidth  * 80 / 100;
+                        top    = screen.availHeight * 10 / 100;
+                        left   = screen.availWidth  * 10 / 100;
 
                         setTimeout(function(){
                             var win2 = window.open(Url2 + r, 'Copy',
