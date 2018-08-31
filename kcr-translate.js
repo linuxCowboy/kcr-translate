@@ -2,9 +2,13 @@ javascript: (function() {
 
 /* -=[ KCR Translate ]=- */
 
-    var Url1 = 'http://en-de.dict.cc/?s=';
+    var Url1 = 'https://idioms.thefreedictionary.com/';
 
     var Url2 = 'https://www.deepl.com/translator#en/de/';
+
+    var Url3 = 'https://translate.google.de/#en/de/';
+
+    var Url4 = 'http://en-de.dict.cc/?s=';
 
 /*******************************************************/
 
@@ -84,25 +88,35 @@ javascript: (function() {
 
                 $('#KCRTranslate_trans', kDoc).click(function (evt) {
                     if (r) {
-                        var height = screen.availHeight * 65 / 100;
-                        var width  = screen.availWidth  * 85 / 100;
-                        var top    = screen.availHeight *  5 / 100;
-                        var left   = screen.availWidth  *  5 / 100;
+                        var top    = screen.availHeight *  3 / 100;
+                        var height = screen.availHeight * 77 / 100;
+                        var left   = screen.availWidth  *  1 / 100;
+                        var width  = screen.availWidth  * 99 / 100;
 
-                        var win1 = window.open(Url1 + r, 'Translate',
+                        var win1 = window.open(Url1 + r, 'URL1',
                             "location=0,menubar=0,scrollbars=1,toolbar=0,status=0,titlebar=0,width=" +
-                            width + ",height=" + height + ",top=" + top + ",left=" + left).focus();
+                            width + ",height=" + height + ",top=" + top + ",left=" + left);
 
-                        height = screen.availHeight * 70 / 100;
-                        width  = screen.availWidth  * 80 / 100;
-                        top    = screen.availHeight * 10 / 100;
-                        left   = screen.availWidth  * 10 / 100;
+                        top    = screen.availHeight *  6 / 100;
+                        height = screen.availHeight * 74 / 100;
 
-                        setTimeout(function(){
-                            var win2 = window.open(Url2 + r, 'Copy',
+                        var win2 = window.open(Url2 + r, 'URL2',
                             "location=0,menubar=0,scrollbars=1,toolbar=0,status=0,titlebar=0,width=" +
-                            width + ",height=" + height + ",top=" + top + ",left=" + left).focus();
-                        }, 200);
+                            width + ",height=" + height + ",top=" + top + ",left=" + left);
+
+                        top    = screen.availHeight *  9 / 100;
+                        height = screen.availHeight * 71 / 100;
+
+                        var win3 = window.open(Url3 + r, 'URL3',
+                            "location=0,menubar=0,scrollbars=1,toolbar=0,status=0,titlebar=0,width=" +
+                            width + ",height=" + height + ",top=" + top + ",left=" + left);
+
+                        top    = screen.availHeight * 12 / 100;
+                        height = screen.availHeight * 68 / 100;
+
+                        var win4 = window.open(Url4 + r, 'URL4',
+                            "location=0,menubar=0,scrollbars=1,toolbar=0,status=0,titlebar=0,width=" +
+                            width + ",height=" + height + ",top=" + top + ",left=" + left);
                     }
                 });
 
