@@ -116,7 +116,7 @@ javascript: (function() {
 
                         var win4 = window.open(Url4 + r, 'URL4',
                             "location=0,menubar=0,scrollbars=1,toolbar=0,status=0,titlebar=0,width=" +
-                            width + ",height=" + height + ",top=" + top + ",left=" + left);
+                            width + ",height=" + height + ",top=" + top + ",left=" + left).focus();
                     }
                 });
 
